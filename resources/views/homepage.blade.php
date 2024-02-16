@@ -19,7 +19,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                
+                @foreach ($trains_db as $train)
+                    {{ $train->company }}
+                    {{ $train->departure_station }}
+                    {{ $train->arrival_station }} <br>
+                @endforeach
             </div>
         </div>
     </div>
