@@ -19,11 +19,58 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Code</th>
+                        <th scope="col">Departure Station</th>
+                        <th scope="col">Arrival Station</th>
+                        <th scope="col">Departure Station</th>
+                        <th scope="col">Arrival Station</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Delayed?</th>
+                        <th scope="col">Cancelled?</th>
+                      </tr>
+                    </thead>
+                  
                 @foreach ($trains_db as $train)
-                    {{ $train->company }}
-                    {{ $train->departure_station }}
-                    {{ $train->arrival_station }} <br>
+                <tr>
+                    <th scope="row">
+                        {{ $train->train_code }}
+                    </th>
+                    <td>
+                        {{ $train->departure_station }}
+                    </td>
+                    <td>
+                        {{ $train->arrival_station }}
+                    </td>
+                    <td>
+                        {{ $train->departure_time }}
+                    </td>
+                    <td>
+                        {{ $train->arrival_time }}
+                    </td>
+                    <td>
+                        {{ $train->company }}
+                    </td>
+                    <td>
+                        @if($train->delayed)
+                            Yes
+                        @else
+                            No
+                        @endif
+                    </td>
+                    <td>
+                        @if($train->cancelled)
+                            Yes
+                        @else
+                            No
+                        @endif
+                    </td>
+                </tr>
                 @endforeach
+
+                </table>
             </div>
         </div>
     </div>

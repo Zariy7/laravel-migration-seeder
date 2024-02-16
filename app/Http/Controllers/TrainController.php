@@ -9,7 +9,7 @@ class TrainController extends Controller
 {
     public function index(){
         $trains_db = Train::all();
-
+        
         return view('homepage', compact('trains_db'));
     }
 }
